@@ -16,4 +16,6 @@ winsize 120 58
 imap <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
+set guioptions=aegim
+
 set mousemodel=popup

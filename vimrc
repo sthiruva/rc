@@ -17,6 +17,8 @@ set smartcase
 set bs=2
 set bg=dark
 set scrolloff=3
+set switchbuf=usetab,newtab
+:set colorcolumn=100
 
 
 "Don't really like highlighted parenthesis matching, so this disables it
@@ -96,7 +98,7 @@ map  <F2> :FufCoverageFile
 imap <C-Space> 
 
 "maps for opening partners of (, {, ", '
-inoremap { {}<Esc>i<CR><Esc>O
+inoremap { {}<Esc>i
 inoremap ( ()<Esc>i
 inoremap " ""<Esc>i
 inoremap ' ''<Esc>i
@@ -128,9 +130,22 @@ function! s:build()
     cd -
 endfunction
 
+function! s:MyFind(fname)
+
+    if bufexists(bufname(a:fname))
+        execute 'sbuffer' a:fname
+    else
+        execute 'tabf' expand(a:fname)
+
+    endif
+
+endfunction
+
 
 command! -nargs=0 -bar B call s:build()
 command! -nargs=0 -bar C call s:ctmodel()
+
+command! -nargs=1 -complete=file_in_path MFind call s:MyFind(<f-args>)
 
 
 "au BufWinLeave * mkview                      " saves the folds on quit!
@@ -176,8 +191,19 @@ highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
 
-autocmd BufNewFile,BufRead  svn-commit.* setf svn
-autocmd FileType svn map <Leader>sd :SVNCommitDiff<CR>
-
-
 colorscheme wombat
+"colorscheme zellner
+
+" open the tags
+"map <C-]> :tab split<CR>:exec("tselect ".expand("<cword>"))<CR>
+map <C-]> :exec("tselect ".expand("<cword>"))<CR>
+map <C-\> :vsp <CR>:exec("tselect ".expand("<cword>"))<CR>
+
+set wildmode=list:longest,full
+
+
+cabbr f MFind
+cabbr F MFind
+if exists("$AEGIS_ROOT")
+    source $AEGIS_ROOT/dotvimrc
+endif
