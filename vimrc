@@ -17,9 +17,11 @@ set smartcase
 set bs=2
 set bg=dark
 set scrolloff=3
+
+set wildmode=longest,list,full
+set wildmenu
 set switchbuf=usetab,newtab
 :set colorcolumn=100
-
 
 "Don't really like highlighted parenthesis matching, so this disables it
 let loaded_matchparen = 1
@@ -72,8 +74,8 @@ endif " has("autocmd")
 
 
 "some useful maps
-map  :bn
-map  :bp  
+"map  :bn
+"map  :bp  
 map <C-Right> :tabNext 
 map <C-Left>  :tabprevious 
 
@@ -190,9 +192,19 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
+function! SetupFind()
+    "find . -type d | grep -v ".git" | grep -v build
+    let src_files = split(system("find * -type d | grep -v '.git' | grep -v build | grep -v tools"), "\n")
+    let src_files = ["."] + src_files
+    let sfiles = join(src_files, ",")
+    let &path = sfiles
+endfunction
 
-colorscheme wombat
-"colorscheme zellner
+call SetupFind()
+
+
+"colorscheme wombat
+colorscheme zellner
 
 " open the tags
 "map <C-]> :tab split<CR>:exec("tselect ".expand("<cword>"))<CR>
