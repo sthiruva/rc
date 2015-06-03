@@ -332,26 +332,6 @@ BLITZ.profile1.workingDirectory: /home/sthiruva/work/blitz
 
 
 #
-# ------------------------------- KITCHEN SINK ------------------------------- #
-#
-# Number of tabs to launch initially
-AEGIS.profile1.workingDirectory: /home/shathi01/work/aegis/
-AEGIS.profile1.command:	       !workon .; export AEGIS_ROOT="/home/shathi01/work/aegis/";source dotbashrc; ls 
-AEGIS.profile1.tabTitle:       AEGIS
-
-
-AEGIS.profile2.workingDirectory: /home/shathi01/work/aegis/
-AEGIS.profile2.command:	       !workon .; source etc/rc/dotbashrc;setup_ve a9
-AEGIS.profile2.tabTitle:       RUN
-
-AEGIS.profile3.workingDirectory: /home/shathi01
-AEGIS.profile3.command:	       !ls
-AEGIS.profile3.tabTitle:       GENERAL
-
-AEGIS.initProfileList:         1,2,3
-
-
-#
 # ------------------------------- FVWM CONSOLE ------------------------------- #
 #
 FvwmConsole.initProfileList:	    4
