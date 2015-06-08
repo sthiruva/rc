@@ -13,8 +13,10 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 
+Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'desert-warm-256'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,6 +53,7 @@ set smartcase
 set wildmode=longest,list,full
 set wildmenu
 set autowrite
+set autoindent
 
 "Don't really like highlighted parenthesis matching, so this disables it
 let loaded_matchparen = 1
@@ -76,11 +79,10 @@ set tags=./tags;
 map <C-]> :exec("tselect ".expand("<cword>"))<CR>
 map <C-\> :vsp <CR>:exec("tselect ".expand("<cword>"))<CR>
 
-:set colorcolumn=100
 
 " Setting for asciidoc files
 autocmd BufRead,BufNewFile *.txt,*.asciidoc,*.adoc,README,TODO,CHANGELOG,NOTES,ABOUT
-        \ setlocal autoindent expandtab tabstop=8 softtabstop=2 shiftwidth=2 filetype=asciidoc
+        \ setlocal autoindent expandtab tabstop=8 softtabstop=2 shiftwidth=2 filetype=asciidoc spell
         \ textwidth=70 wrap formatoptions=tcqn
         \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
         \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
