@@ -36,8 +36,8 @@ filetype plugin indent on    " required
 
 
 " These are my extensions
-if exists("$BLITZ_ROOT")
-    source $BLITZ_ROOT/etc/dotvimrc
+if exists("$STING_ROOT")
+    source $STING_ROOT/etc/dotvimrc
 endif
 
 filetype on
