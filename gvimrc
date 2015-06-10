@@ -9,12 +9,15 @@ set  guifont=Ubuntu\ Mono\ 11
 
 
 "colorscheme torte
-"colorscheme wombat
-"colorscheme default
 colorscheme desert-warm-256
-""set guifont=Consolas\ 11
+"colorscheme inkpot
+"colorscheme default
+"colorscheme wombat
 
 "set cursorline
+
+set guifont=Ubuntu\ Mono\ 11
+
 
 "winpos 250 30
 "winsize 120 58
@@ -30,3 +33,5 @@ set mousemodel=popup
 
 set guioptions-=T " remove toolbar
 set guioptions-=r " remove toolbar
+
+hi ExtraWhitespace guibg=#A4A4E4
