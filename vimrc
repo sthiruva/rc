@@ -79,10 +79,16 @@ set tags=./tags;
 map <C-]> :exec("tselect ".expand("<cword>"))<CR>
 map <C-\> :vsp <CR>:exec("tselect ".expand("<cword>"))<CR>
 
+set textwidth=80 wrap
+set formatoptions=tcqnr
+set spell
+
+"croql
+
 
 " Setting for asciidoc files
 autocmd BufRead,BufNewFile *.txt,*.asciidoc,*.adoc,README,TODO,CHANGELOG,NOTES,ABOUT
         \ setlocal autoindent expandtab tabstop=8 softtabstop=2 shiftwidth=2 filetype=asciidoc spell
-        \ textwidth=70 wrap formatoptions=tcqn
+        \ textwidth=80 wrap formatoptions=tcqn
         \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
         \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
