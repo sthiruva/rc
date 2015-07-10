@@ -45,15 +45,19 @@ filetype plugin indent on
 
 set tabstop=4
 set shiftwidth=4
-set expandtab 
+set expandtab
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set smartindent
 set wildmode=longest,list,full
 set wildmenu
 set autowrite
 set autoindent
+"set backspace=2
+set backspace=indent,eol,start " backspace over everything in insert mode
+
 
 "Don't really like highlighted parenthesis matching, so this disables it
 let loaded_matchparen = 1
