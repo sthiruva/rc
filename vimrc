@@ -12,6 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 
 
 Plugin 'https://github.com/kien/ctrlp.vim.git'
+Plugin 'https://github.com/vim-scripts/ShowMarks.git'
 
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'altercation/vim-colors-solarized'
@@ -40,7 +41,6 @@ if exists("$STING_ROOT")
     source $STING_ROOT/etc/dotvimrc
 endif
 
-filetype on
 filetype plugin indent on
 
 set tabstop=4
@@ -50,14 +50,13 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set smartindent
 set wildmode=longest,list,full
 set wildmenu
 set autowrite
-set autoindent
 "set backspace=2
 set backspace=indent,eol,start " backspace over everything in insert mode
 
+syntax on
 
 "Don't really like highlighted parenthesis matching, so this disables it
 let loaded_matchparen = 1
@@ -75,6 +74,8 @@ inoremap [ []<Esc>i
 inoremap <C-l> <Esc>la
 inoremap <C-h> <Esc>i
 
+autocmd VimEnter * map <C-p> :CtrlPMixed
+
 "Search for tag file..here and above!
 set tags=./tags;
 
@@ -84,8 +85,9 @@ map <C-]> :exec("tselect ".expand("<cword>"))<CR>
 map <C-\> :vsp <CR>:exec("tselect ".expand("<cword>"))<CR>
 
 set textwidth=80 wrap
+"set colorcolumn=80
 set formatoptions=tcqnr
-set spell
+set nospell
 
 "croql
 
@@ -96,3 +98,22 @@ autocmd BufRead,BufNewFile *.txt,*.asciidoc,*.adoc,README,TODO,CHANGELOG,NOTES,A
         \ textwidth=80 wrap formatoptions=tcqn
         \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
         \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
+
+noremap <M-Right> :tabnext
+noremap <M-Left>  :tabprev
+
+
+inoremap <M-Right> <Esc>:tabnext
+inoremap <M-Left>  <Esc>:tabprev
+
+
+noremap <A-1> :tabn 1<CR>
+noremap <A-2> :tabn 2<CR>
+noremap <A-3> :tabn 3<CR>
+noremap <A-4> :tabn 4<CR>
+noremap <A-5> :tabn 5<CR>
+noremap <A-6> :tabn 6<CR>
+noremap <A-7> :tabn 7<CR>
+noremap <A-8> :tabn 8<CR>
+noremap <A-9> :tabn 9<CR>
+
