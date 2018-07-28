@@ -56,7 +56,7 @@ Mrxvt.syncTabTitle:		True
 
 # Display the tab number in the title. Useful so that you can use Alt+digit to
 # quickly switch between tabs.
-#Mrxvt.titleFormat:		%n. %t
+Mrxvt.titleFormat:		%n. %t
 
 # Highlight inactive tabs only when they sound a bell (and not whenever they
 # produce output).
@@ -127,7 +127,7 @@ Mrxvt.shading:			75
 # ---------------------------------- FONTS ----------------------------------- #
 #
 Mrxvt.xft:	    		1
-Mrxvt.xftFont:			Consolas 
+Mrxvt.xftFont:			Ubuntu Mono 
 Mrxvt.xftSize:			11
 Mrxvt.xftAntialias:		1
 
@@ -146,7 +146,7 @@ Mrxvt.xftAntialias:		1
 Mrxvt.xftNomFont:		1
 
 # Font to use for tab bar / menus. This need not be mono-spaced ;).
-Mrxvt.xftFont:			Consolas 
+Mrxvt.xftFont:			Ubuntu Mono 
 Mrxvt.xftPSize:			11
 
 # Shadow text
@@ -165,7 +165,7 @@ Mrxvt.xftPSize:			11
 # ---------------------------------- CURSOR ---------------------------------- #
 #
 Mrxvt.cursorBlink:		true
-Mrxvt.cursorColor:		#EBEC85
+Mrxvt.cursorColor:		#000000
 Mrxvt.cursorColor2:		#FF00FF
 
 #
@@ -173,8 +173,8 @@ Mrxvt.cursorColor2:		#FF00FF
 #
 
 # Setup colors for a black background.
-Mrxvt.background:		#1E1E27
-Mrxvt.foreground:		#CFBFAD
+Mrxvt.background:		#FFFFCC
+Mrxvt.foreground:		#000000
 
 Mrxvt.color0:			#000000
 Mrxvt.color1:			#af0000
@@ -260,8 +260,8 @@ Mrxvt.profile4.tabTitle:	LEADSEARCHER
 Mrxvt.profile4.workingDirectory:/home/lfbuild/work/trunk/
 
 Mrxvt.profile5.command:		!workon .; source dotbashrc
-Mrxvt.profile5.tabTitle:	BLITZ
-Mrxvt.profile5.workingDirectory: /home/sthiruva/work/blitz 
+Mrxvt.profile5.tabTitle:	STING
+Mrxvt.profile5.workingDirectory: /home/sthiruva/work/sting 
 
 #
 # ---------------------------- KEYBOARD SHORTCUTS ---------------------------- #
@@ -322,13 +322,55 @@ FullScreen.smoothResize:	True
 FullScreen.fullscreen:		True
 
 #
-# ---------------------------------- BLITZ ----------------------------------- #
+# ---------------------------------- STING ----------------------------------- #
 #
 # Number of tabs to launch initially
-BLITZ.initProfileList:	    1,1
-BLITZ.profile1.command:		!workon .; source dotbashrc
-BLITZ.profile1.tabTitle:	BLITZ
-BLITZ.profile1.workingDirectory: /home/sthiruva/work/blitz 
+STING.initProfileList:	    1,1
+STING.profile1.command:		!workon .; source dotbashrc
+STING.profile1.tabTitle:	STING
+STING.profile1.workingDirectory: /home/sthiruva/work/sting
+STING.scrollBar:		    False
+
+# ---------------------------------- DEMO ----------------------------------- #
+#
+# Number of tabs to launch initially
+DEMO.initProfileList:	    1,1
+DEMO.profile1.command:		!workon .; source dotbashrc
+DEMO.profile1.tabTitle:	STING
+DEMO.profile1.workingDirectory: /home/sthiruva/work/sting
+DEMO.scrollBar:		    False
+
+DEMO.profile1.background:		#FFFFFF
+DEMO.profile1.foreground:		#000000
+DEMO.cursorColor:		        #000000
+
+DEMO.color0:                    #000000
+DEMO.color1:                    #af0000
+DEMO.color2:                    #00af00
+DEMO.color3:                    #afaf00
+DEMO.color4:                    #0000af
+DEMO.color5:                    #af00af
+DEMO.color6:                    #00afaf
+DEMO.color7:                    #9a9a9a
+DEMO.color8:                    #5f5f5f
+DEMO.color9:                    #d70000
+DEMO.color10:                   #00d700
+DEMO.color11:                   #d7d700
+DEMO.color12:                   #0709F8
+DEMO.color13:                   #d700d7
+DEMO.color14:                   #00d7d7
+DEMO.color15:                   #d7d7d7
+
+#
+# ---------------------------------- THINKIIT --------------------------------- #
+#
+# Number of tabs to launch initially
+THINKIIT.initProfileList:       1,1,1
+THINKIIT.profile1.command:      !workon .; source dotbashrc
+THINKIIT.profile1.tabTitle:     THINKIIT
+THINKIIT.profile1.workingDirectory: /home/sthiruva/work/interim_thinkiit
+THINKIIT.fullscreen:            True
+THINKIIT.showMenu:              True
 
 
 #
@@ -352,5 +394,14 @@ Root.initProfileList:		    1
 Root.tintColor:			    #002000
 Root.itabBackground:		    #002000
 
+
+# Some keyboard shortcuts
+Mrxvt.macro.Ctrl+Right:         GotoTab +1
+Mrxvt.macro.Ctrl+Left:        GotoTab -1
+
+Mrxvt.macro.Ctrl+Shift+V: Paste CLIPBOARD
+Mrxvt.macro.Ctrl+Shift+C: Exec !/usr/bin/xclip -o | /usr/bin/xclip -selection clipboard
+
 # ---------------------------------------------------------------------------- #
 # vim: set ft=mrxvtrc ts=8 sts=4
+
