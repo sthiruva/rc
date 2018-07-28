@@ -4,19 +4,23 @@
 "set guifont=DejaVu\ Sans\ Mono\ 10
 
 "set guifont=ProggyCleanTT\ CE\ 12
-set  guifont=Ubuntu\ Mono\ 11
+set  guifont=Ubuntu\ Mono\ 12
 
 
 
 "colorscheme torte
-colorscheme desert-warm-256
+"set bg=light
+colorscheme mayansmoke
+"colorscheme desert-warm-256
 "colorscheme inkpot
 "colorscheme default
 "colorscheme wombat
 
+"colorscheme zellner
+
 "set cursorline
 
-set guifont=Ubuntu\ Mono\ 11
+set guifont=Ubuntu\ Mono\ 12
 
 
 "winpos 250 30
@@ -25,7 +29,7 @@ set guifont=Ubuntu\ Mono\ 11
 imap <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-set guioptions=aegim
+set guioptions=aegimt
 
 set mousemodel=popup
 
@@ -35,3 +39,4 @@ set guioptions-=T " remove toolbar
 set guioptions-=r " remove toolbar
 
 hi ExtraWhitespace guibg=#A4A4E4
+

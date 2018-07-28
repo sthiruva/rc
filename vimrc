@@ -11,12 +11,13 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 
+Plugin 'rust-lang/rust.vim'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
+Plugin 'https://github.com/jeetsukumaran/vim-buffergator.git'
 
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'desert-warm-256'
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,14 +51,14 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set smartindent
 set wildmode=longest,list,full
 set wildmenu
 set autowrite
 set autoindent
-"set backspace=2
-set backspace=indent,eol,start " backspace over everything in insert mode
-
+set ruler
+set number
+set splitright
+set splitbelow
 
 "Don't really like highlighted parenthesis matching, so this disables it
 let loaded_matchparen = 1
@@ -75,6 +76,21 @@ inoremap [ []<Esc>i
 inoremap <C-l> <Esc>la
 inoremap <C-h> <Esc>i
 
+
+noremap <C-Left>    :tabprev<CR>
+noremap <C-Right>   :tabnext<CR>
+noremap <C-p>       :CtrlPMixed<CR>
+
+noremap <A-0> :tabn 0
+noremap <A-1> :tabn 1
+noremap <A-2> :tabn 2
+noremap <A-3> :tabn 3
+noremap <A-4> :tabn 4
+noremap <A-5> :tabn 5
+noremap <A-6> :tabn 6
+noremap <A-7> :tabn 7
+
+
 "Search for tag file..here and above!
 set tags=./tags;
 
@@ -83,9 +99,12 @@ set tags=./tags;
 map <C-]> :exec("tselect ".expand("<cword>"))<CR>
 map <C-\> :vsp <CR>:exec("tselect ".expand("<cword>"))<CR>
 
-set textwidth=80 wrap
-set formatoptions=tcqnr
-set spell
+set textwidth=80 wrap formatoptions=tcqnrbl
+"set spell
+set colorcolumn=80
+hi ColorColumn ctermbg=7
+
+"set formatoptions=ntcroql
 
 "croql
 
@@ -93,6 +112,12 @@ set spell
 " Setting for asciidoc files
 autocmd BufRead,BufNewFile *.txt,*.asciidoc,*.adoc,README,TODO,CHANGELOG,NOTES,ABOUT
         \ setlocal autoindent expandtab tabstop=8 softtabstop=2 shiftwidth=2 filetype=asciidoc spell
-        \ textwidth=80 wrap formatoptions=tcqn
+        \ textwidth=80 wrap formatoptions=tcqnrbl
         \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
         \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
+
+
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
