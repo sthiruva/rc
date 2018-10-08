@@ -104,7 +104,7 @@ set tags=./tags;
 map <C-]> :exec("tselect ".expand("<cword>"))<CR>
 map <C-\> :vsp <CR>:exec("tselect ".expand("<cword>"))<CR>
 
-set textwidth=80 wrap
+"set textwidth=80 wrap
 "set colorcolumn=80
 set formatoptions=tcqnr
 set nospell
@@ -140,3 +140,8 @@ noremap <A-6> :tabn 6<CR>
 noremap <A-7> :tabn 7<CR>
 noremap <A-8> :tabn 8<CR>
 noremap <A-9> :tabn 9<CR>
+
+noremap <C-S-c> "+y
+noremap <C-S-p> "+gP
+
+

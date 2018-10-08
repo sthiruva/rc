@@ -1,0 +1,62 @@
+@import url("stylesheet.css");
+
+#panel.bottom-panel {
+  height: 2.25em ;
+}
+
+.bottom-panel .window-button > StWidget {
+  color: #aaa;    /*Grey 33% */
+  background-color: rgba(41, 40, 37, 0.75);    /*Dark color2*/
+  background-gradient-start: rgba(102, 101, 95, 0.75);    /*Panel color1*/
+  background-gradient-end: rgba(0, 0, 0, 0.6);    /*Black */
+  border-radius: 3px;
+  padding: 4px 6px 2px;
+  text-shadow: 0 0 transparent;    /*Transparent */
+  font-weight: normal;
+  border: 1px solid #292825;    /*Dark color2*/
+  box-shadow: inset -1px -1px 1px rgba(0,0,0,0.4);    /*Black */
+}
+
+.bottom-panel .window-button:hover > StWidget {
+  color: #fff;    /*White */
+  background-color: rgba(0,0,0,0.4);    /*Black */
+  background-gradient-start: rgba(0,0,0,0.4);    /*Black */
+  background-gradient-end: rgba(77, 75, 70, 0.7);    /*Dark color1*/
+  box-shadow: inset -1px -1px 1px rgba(0,0,0,0.4);    /*Black */
+}
+
+.bottom-panel .window-button:active > StWidget,
+.bottom-panel .window-button:focus > StWidget {
+  background-color: rgba(41, 40, 37, 0.6);    /*Dark color2*/
+  background-gradient-start: rgba(102, 101, 95, 0.6);    /*Panel color1*/
+  background-gradient-end: rgba(0, 0, 0, 0.45);    /*Black */
+  box-shadow: inset 2px 2px 4px rgba(136, 136, 136, 0.7);    /*Grey 47% */
+}
+
+.bottom-panel .window-button.focused > StWidget {
+  color: #fff;    /*White */
+  font-weight: bold;
+  border: 1px solid #292825;    /*Dark color2*/
+  box-shadow: inset 1px 1px 4px rgba(136, 136, 136, 0.7);    /*Grey 47% */
+}
+
+.bottom-panel .window-button.focused:hover > StWidget {
+  background-color: rgba(41, 40, 37, 0.6);    /*Dark color2*/
+  box-shadow: inset 2px 2px 4px rgba(136, 136, 136, 0.7);    /*Grey 47% */
+}
+
+.bottom-panel .window-button.minimized > StWidget {
+  background-color: rgba(102, 101, 95, 0.75);    /*Panel color1*/
+  color: #999;    /*Grey 40% */
+  font-style: italic;
+  border: 1px solid #292825;    /*Dark color2*/
+  box-shadow: inset -1px -1px 1px rgba(0,0,0,0.4);    /*Black */
+}
+
+.bottom-panel .window-button.minimized:hover > StWidget {
+  color: #fff;    /*White */
+  background-color: rgba(0,0,0,0.4);    /*Black */
+  background-gradient-start: rgba(0,0,0,0.4);    /*Black */
+  background-gradient-end: rgba(77, 75, 70, 0.7);    /*Dark color1*/
+  box-shadow: inset -1px -1px 1px rgba(0,0,0,0.4);    /*Black */
+}

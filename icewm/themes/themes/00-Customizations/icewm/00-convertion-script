@@ -1,0 +1,207 @@
+#!/bin/sh
+# script to convert and copy file in icewm
+
+# remove old versions of converted files
+rm -f -r themes
+
+# common buttons
+cd 00-svgSource/00-common
+mkdir -p 02-Crunchy-orange
+mkdir -p 02-Crunchy-orange/icons
+mkdir -p 02-Crunchy-orange/taskbar
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  convert -depth 8 -background none "{}.svg" 02-Crunchy-orange/"{}.xpm"
+cd ../00-icons
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  composite -compose Dst_Over -tile pattern:checkerboard "{}.svg" ../00-common/02-Crunchy-orange/icons/"{}_32x32.xpm"
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  convert -depth 8 -background none -resize 16x16! "{}.svg" ../00-common/02-Crunchy-orange/icons/"{}_16x16.xpm"
+cd ../00-taskbar
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  composite -compose Dst_Over -tile pattern:checkerboard "{}.svg" ../00-common/02-Crunchy-orange/taskbar/"{}.xpm"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "icewm"
+mkdir -p themes
+mv 00-svgSource/00-common/02-Crunchy-orange themes
+## symbolic links
+cd themes/02-Crunchy-orange
+cp -s titleAJ.xpm titleIJ.xpm
+cp -s titleAQ.xpm titleIQ.xpm
+cp -s titleAB.xpm titleAL.xpm
+cp -s titleAB.xpm titleAM.xpm
+cp -s titleAB.xpm titleAP.xpm
+cp -s titleAB.xpm titleAR.xpm
+cp -s titleAB.xpm titleAS.xpm
+cp -s titleAB.xpm titleAT.xpm
+cp -s titleAB.xpm titleIB.xpm
+cp -s titleAB.xpm titleIL.xpm
+cp -s titleAB.xpm titleIM.xpm
+cp -s titleAB.xpm titleIP.xpm
+cp -s titleAB.xpm titleIR.xpm
+cp -s titleAB.xpm titleIS.xpm
+cp -s titleAB.xpm titleIT.xpm
+cd .. # parent folder: "themes"
+cd .. # parent folder: "icewm"
+###
+### creation of other colored version folders
+cp -d -r themes/02-Crunchy-orange/ themes/03-Crunchy-blue
+cp -d -r themes/02-Crunchy-orange/ themes/04-Crunchy-grey
+cp -d -r themes/02-Crunchy-orange/ themes/05-Crunchy-green
+
+##################
+# orange buttons #
+##################
+cd 00-svgSource/02-orange/others
+cp -d -r default.theme ../../../themes/02-Crunchy-orange/.
+composite -compose Dst_Over -tile pattern:checkerboard workspacebuttonactive.svg ../../../themes/02-Crunchy-orange/taskbar/workspacebuttonactive.xpm
+cd .. # parent folder: "02-orange"
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "icewm"
+cp -d -r 00-svgSource/02-orange/pixmaps/* themes/02-Crunchy-orange/.
+rm -f -r 00-svgSource/02-orange/pixmaps
+
+################
+# blue buttons #
+################
+cd 00-svgSource/03-blue/others
+cp -d -r default.theme ../../../themes/03-Crunchy-blue/.
+composite -compose Dst_Over -tile pattern:checkerboard workspacebuttonactive.svg ../../../themes/03-Crunchy-blue/taskbar/workspacebuttonactive.xpm
+cd .. # parent folder: "03-blue"
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "icewm"
+cp -d -r 00-svgSource/03-blue/pixmaps/* themes/03-Crunchy-blue/.
+rm -f -r 00-svgSource/03-blue/pixmaps
+
+################
+# grey buttons #
+################
+cd 00-svgSource/04-grey/others
+cp -d -r default.theme ../../../themes/04-Crunchy-grey/.
+composite -compose Dst_Over -tile pattern:checkerboard workspacebuttonactive.svg ../../../themes/04-Crunchy-grey/taskbar/workspacebuttonactive.xpm
+cd .. # parent folder: "04-grey"
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "icewm"
+cp -d -r 00-svgSource/04-grey/pixmaps/* themes/04-Crunchy-grey/.
+rm -f -r 00-svgSource/04-grey/pixmaps
+
+#################
+# green buttons #
+#################
+cd 00-svgSource/05-green/others
+cp -d -r default.theme ../../../themes/05-Crunchy-green/.
+composite -compose Dst_Over -tile pattern:checkerboard workspacebuttonactive.svg ../../../themes/05-Crunchy-green/taskbar/workspacebuttonactive.xpm
+cd .. # parent folder: "05-green"
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "icewm"
+cp -d -r 00-svgSource/05-green/pixmaps/* themes/05-Crunchy-green/.
+rm -f -r 00-svgSource/05-green/pixmaps
+
+##### SQ BUTTONS #####
+mkdir -p themes/02-Crunchy-orange_SQ
+mkdir -p themes/02-Crunchy-orange_SQ/icons
+mkdir -p themes/02-Crunchy-orange_SQ/taskbar
+mkdir -p themes/03-Crunchy-blue_SQ
+mkdir -p themes/03-Crunchy-blue_SQ/icons
+mkdir -p themes/03-Crunchy-blue_SQ/taskbar
+mkdir -p themes/04-Crunchy-grey_SQ
+mkdir -p themes/04-Crunchy-grey_SQ/icons
+mkdir -p themes/04-Crunchy-grey_SQ/taskbar
+mkdir -p themes/05-Crunchy-green_SQ
+mkdir -p themes/05-Crunchy-green_SQ/icons
+mkdir -p themes/05-Crunchy-green_SQ/taskbar
+
+cd themes/02-Crunchy-orange_SQ/icons
+cp -s ../../02-Crunchy-orange/icons/* .
+cd ../taskbar
+cp -s ../../02-Crunchy-orange/taskbar/* .
+cd .. # parent folder: "02-Crunchy-orange_SQ"
+cp -s ../02-Crunchy-orange/* .
+rm close*
+rm minimize*
+rm maximize*
+rm restore*
+convert -depth 8 -background none ../../00-svgSource/02-orange_SQ/closeA.svg closeA.xpm
+convert -depth 8 -background none ../../00-svgSource/02-orange_SQ/closeO.svg closeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/closeI.svg closeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeA.svg maximizeA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeI.svg maximizeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeO.svg maximizeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeA.svg minimizeA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeI.svg minimizeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeO.svg minimizeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreA.svg restoreA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreI.svg restoreI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreO.svg restoreO.xpm
+
+cd ../03-Crunchy-blue_SQ/icons
+cp -s ../../03-Crunchy-blue/icons/* .
+cd ../taskbar
+cp -s ../../03-Crunchy-blue/taskbar/* .
+cd .. # parent folder: "03-Crunchy-blue_SQ"
+cp -s ../03-Crunchy-blue/* .
+rm close*
+rm minimize*
+rm maximize*
+rm restore*
+convert -depth 8 -background none ../../00-svgSource/03-blue_SQ/closeA.svg closeA.xpm
+convert -depth 8 -background none ../../00-svgSource/03-blue_SQ/closeO.svg closeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/closeI.svg closeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeA.svg maximizeA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeI.svg maximizeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeO.svg maximizeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeA.svg minimizeA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeI.svg minimizeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeO.svg minimizeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreA.svg restoreA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreI.svg restoreI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreO.svg restoreO.xpm
+
+cd ../04-Crunchy-grey_SQ/icons
+cp -s ../../04-Crunchy-grey/icons/* .
+cd ../taskbar
+cp -s ../../04-Crunchy-grey/taskbar/* .
+cd .. # parent folder: "04-Crunchy-grey_SQ"
+cp -s ../04-Crunchy-grey/* .
+rm close*
+rm minimize*
+rm maximize*
+rm restore*
+convert -depth 8 -background none ../../00-svgSource/04-grey_SQ/closeA.svg closeA.xpm
+convert -depth 8 -background none ../../00-svgSource/04-grey_SQ/closeO.svg closeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/closeI.svg closeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeA.svg maximizeA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeI.svg maximizeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeO.svg maximizeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeA.svg minimizeA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeI.svg minimizeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeO.svg minimizeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreA.svg restoreA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreI.svg restoreI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreO.svg restoreO.xpm
+
+cd ../05-Crunchy-green_SQ/icons
+cp -s ../../05-Crunchy-green/icons/* .
+cd ../taskbar
+cp -s ../../05-Crunchy-green/taskbar/* .
+cd .. # parent folder: "05-Crunchy-green_SQ"
+cp -s ../05-Crunchy-green/* .
+rm close*
+rm minimize*
+rm maximize*
+rm restore*
+convert -depth 8 -background none ../../00-svgSource/05-green_SQ/closeA.svg closeA.xpm
+convert -depth 8 -background none ../../00-svgSource/05-green_SQ/closeO.svg closeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/closeI.svg closeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeA.svg maximizeA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeI.svg maximizeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/maximizeO.svg maximizeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeA.svg minimizeA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeI.svg minimizeI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/minimizeO.svg minimizeO.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreA.svg restoreA.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreI.svg restoreI.xpm
+convert -depth 8 -background none ../../00-svgSource/00-common_SQ/restoreO.svg restoreO.xpm

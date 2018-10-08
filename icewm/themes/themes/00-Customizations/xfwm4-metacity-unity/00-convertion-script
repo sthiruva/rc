@@ -1,0 +1,365 @@
+#!/bin/sh
+# script to convert and copy file in xfwm4 Metacity & Unity
+
+# remove old versions of converted files
+rm -f -r 02*
+rm -f -r 03*
+rm -f -r 04*
+rm -f -r 05*
+
+# common buttons
+cd 00-svgSource/00-common
+mkdir -p xfwm4
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" xfwm4/"{}.png"
+convert -depth 8 -background none 0_borders.svg xfwm4/bottom-active.xpm
+convert -depth 8 -background none 0_title.svg xfwm4/title-1-active.xpm
+convert -depth 8 -background none 0_title_left.svg xfwm4/top-left-active.xpm
+convert -depth 8 -background none 0_title_right.svg xfwm4/top-right-active.xpm
+cd xfwm4
+rm -f -r 0_*
+cp -s menu-active.png menu-pressed.png
+cp -s shade-active.png shade-pressed.png
+cp -s shade-toggled-active.png shade-toggled-pressed.png
+cp -s stick-active.png stick-pressed.png
+cp -s stick-toggled-active.png stick-toggled-pressed.png
+cp -s bottom-active.xpm bottom-inactive.xpm
+cp -s bottom-active.xpm bottom-left-active.xpm
+cp -s bottom-active.xpm bottom-left-inactive.xpm
+cp -s bottom-active.xpm bottom-right-active.xpm
+cp -s bottom-active.xpm bottom-right-inactive.xpm
+cp -s bottom-active.xpm left-active.xpm
+cp -s bottom-active.xpm left-inactive.xpm
+cp -s bottom-active.xpm right-active.xpm
+cp -s bottom-active.xpm right-inactive.xpm
+cp -s title-1-active.xpm title-1-inactive.xpm
+cp -s title-1-active.xpm title-2-active.xpm
+cp -s title-1-active.xpm title-2-inactive.xpm
+cp -s title-1-active.xpm title-3-active.xpm
+cp -s title-1-active.xpm title-3-inactive.xpm
+cp -s title-1-active.xpm title-4-active.xpm
+cp -s title-1-active.xpm title-4-inactive.xpm
+cp -s title-1-active.xpm title-5-active.xpm
+cp -s title-1-active.xpm title-5-inactive.xpm
+cp -s top-left-active.xpm top-left-inactive.xpm
+cp -s top-right-active.xpm top-right-inactive.xpm
+cd .. # parent folder: "00-common"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "xfwm4-metacity-unity"
+mkdir -p 02-Crunchy-orange
+mv 00-svgSource/00-common/xfwm4 02-Crunchy-orange
+##
+## metacity versions
+cd 02-Crunchy-orange
+mkdir -p metacity-1
+mkdir -p unity
+mv xfwm4/above* metacity-1/.
+cp xfwm4/close-inactive.png metacity-1/close_unfocused.png
+cp xfwm4/maximize-active.png metacity-1/maximize.png
+cp xfwm4/maximize-prelight.png metacity-1/maximize_prelight.png
+cp xfwm4/maximize-pressed.png metacity-1/maximize_pressed.png
+cp xfwm4/maximize-inactive.png metacity-1/maximize_unfocused.png
+cp xfwm4/hide-active.png metacity-1/minimize.png
+cp xfwm4/hide-prelight.png metacity-1/minimize_prelight.png
+cp xfwm4/hide-pressed.png metacity-1/minimize_pressed.png
+cp xfwm4/hide-inactive.png metacity-1/minimize_unfocused.png
+cp xfwm4/maximize-toggled-active.png metacity-1/unmaximize.png
+cp xfwm4/maximize-toggled-prelight.png metacity-1/unmaximize_prelight.png
+cp xfwm4/maximize-toggled-pressed.png metacity-1/unmaximize_pressed.png
+cp xfwm4/maximize-toggled-inactive.png metacity-1/unmaximize_unfocused.png
+cp xfwm4/menu-active.png metacity-1/menu.png
+cp xfwm4/menu-prelight.png metacity-1/menu_prelight.png
+cp xfwm4/menu-inactive.png metacity-1/menu_unfocused.png
+## symbolic links and copie of config files
+cd xfwm4
+cp ../../01-config_files/themerc .
+cd .. # parent folder: "02-Crunchy-orange"
+cd metacity-1
+cp ../../01-config_files/metacity-theme-1.xml .
+cp ../../01-config_files/metacity-theme-3.xml .
+cp -s ../xfwm4/shade-active.png shade.png
+cp -s ../xfwm4/shade-prelight.png shade_prelight.png
+cp -s ../xfwm4/shade-inactive.png shade_pressed.png
+cp -s ../xfwm4/shade-inactive.png shade_unfocused.png
+cp -s ../xfwm4/shade-toggled-active.png unshade.png
+cp -s ../xfwm4/shade-toggled-prelight.png unshade_prelight.png
+cp -s ../xfwm4/shade-toggled-inactive.png unshade_pressed.png
+cp -s ../xfwm4/shade-toggled-inactive.png unshade_unfocused.png
+cp -s ../xfwm4/stick-active.png stick.png
+cp -s ../xfwm4/stick-prelight.png stick_prelight.png
+cp -s ../xfwm4/stick-inactive.png stick_pressed.png
+cp -s ../xfwm4/stick-inactive.png stick_unfocused.png
+cp -s ../xfwm4/stick-toggled-active.png unstick.png
+cp -s ../xfwm4/stick-toggled-prelight.png unstick_prelight.png
+cp -s ../xfwm4/stick-toggled-inactive.png unstick_pressed.png
+cp -s ../xfwm4/stick-toggled-inactive.png unstick_unfocused.png
+cp -s menu_unfocused.png menu_pressed.png
+cp -s above_unfocused.png above_pressed.png
+cd .. # parent folder: "02-Crunchy-orange"
+cd unity
+cp -s ../metacity-1/close_unfocused.png .
+cp -s ../metacity-1/maximize.png .
+cp -s ../metacity-1/maximize.png maximize_focused_normal.png
+cp -s ../metacity-1/maximize_unfocused.png .
+cp -s ../metacity-1/maximize_prelight.png maximize_focused_prelight.png
+cp -s ../metacity-1/maximize_prelight.png maximize_unfocused_prelight.png
+cp -s ../metacity-1/maximize_pressed.png maximize_focused_pressed.png
+cp -s ../metacity-1/maximize_pressed.png maximize_unfocused_pressed.png
+cp -s ../metacity-1/minimize.png .
+cp -s ../metacity-1/minimize.png minimize_focused_normal.png
+cp -s ../metacity-1/minimize_unfocused.png .
+cp -s ../metacity-1/minimize_prelight.png minimize_focused_prelight.png
+cp -s ../metacity-1/minimize_prelight.png minimize_unfocused_prelight.png
+cp -s ../metacity-1/minimize_pressed.png minimize_focused_pressed.png
+cp -s ../metacity-1/minimize_pressed.png minimize_unfocused_pressed.png
+cp -s ../metacity-1/unmaximize.png .
+cp -s ../metacity-1/unmaximize.png unmaximize_focused_normal.png
+cp -s ../metacity-1/unmaximize_unfocused.png .
+cp -s ../metacity-1/unmaximize_prelight.png unmaximize_focused_prelight.png
+cp -s ../metacity-1/unmaximize_prelight.png unmaximize_unfocused_prelight.png
+cp -s ../metacity-1/unmaximize_pressed.png unmaximize_focused_pressed.png
+cp -s ../metacity-1/unmaximize_pressed.png unmaximize_unfocused_pressed.png
+cd .. # parent folder: "02-Crunchy-orange"
+cd .. # parent folder: "xfwm4-metacity-unity"
+###
+### creation of other colored version folders
+cp -r 02-Crunchy-orange 03-Crunchy-blue
+cp -r 02-Crunchy-orange 04-Crunchy-grey
+cp -r 02-Crunchy-orange 05-Crunchy-green
+
+##################
+# orange buttons #
+##################
+cd 00-svgSource/02-orange
+mkdir -p xfwm4
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" xfwm4/"{}.png"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "xfwm4-metacity-unity"
+mv 00-svgSource/02-orange/xfwm4/* 02-Crunchy-orange/xfwm4
+rm -f -r 00-svgSource/02-orange/xfwm4
+##
+## metacity versions
+cd 02-Crunchy-orange
+cp -f ../00-svgSource/02-orange/thumbnail.png metacity-1/.
+cp xfwm4/close-active.png metacity-1/close.png
+cp xfwm4/close-prelight.png metacity-1/close_prelight.png
+cp xfwm4/close-pressed.png metacity-1/close_pressed.png
+###
+### unity versions
+cd unity
+cp -s ../metacity-1/close.png .
+cp -s ../metacity-1/close.png close_focused_normal.png
+cp -s ../metacity-1/close_prelight.png close_focused_prelight.png
+cp -s ../metacity-1/close_prelight.png close_unfocused_prelight.png
+cp -s ../metacity-1/close_pressed.png close_focused_pressed.png
+cp -s ../metacity-1/close_pressed.png close_unfocused_pressed.png
+cd .. # parent folder: "02-Crunchy-orange"
+cd .. # parent folder: "xfwm4-metacity-unity"
+
+################
+# blue buttons #
+################
+cd 00-svgSource/03-blue
+mkdir -p xfwm4
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" xfwm4/"{}.png"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "xfwm4-metacity-unity"
+mv 00-svgSource/03-blue/xfwm4/* 03-Crunchy-blue/xfwm4
+rm -f -r 00-svgSource/03-blue/xfwm4
+##
+## metacity versions
+cd 03-Crunchy-blue
+cp -f ../00-svgSource/03-blue/thumbnail.png metacity-1/.
+cp xfwm4/close-active.png metacity-1/close.png
+cp xfwm4/close-prelight.png metacity-1/close_prelight.png
+cp xfwm4/close-pressed.png metacity-1/close_pressed.png
+###
+### unity versions
+cd unity
+cp -s ../metacity-1/close.png .
+cp -s ../metacity-1/close.png close_focused_normal.png
+cp -s ../metacity-1/close_prelight.png close_focused_prelight.png
+cp -s ../metacity-1/close_prelight.png close_unfocused_prelight.png
+cp -s ../metacity-1/close_pressed.png close_focused_pressed.png
+cp -s ../metacity-1/close_pressed.png close_unfocused_pressed.png
+cd .. # parent folder: "03-Crunchy-blue"
+cd .. # parent folder: "xfwm4-metacity-unity"
+
+################
+# grey buttons #
+################
+cd 00-svgSource/04-grey
+mkdir -p xfwm4
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" xfwm4/"{}.png"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "xfwm4-metacity-unity"
+mv 00-svgSource/04-grey/xfwm4/* 04-Crunchy-grey/xfwm4
+rm -f -r 00-svgSource/04-grey/xfwm4
+##
+## metacity versions
+cd 04-Crunchy-grey
+cp -f ../00-svgSource/04-grey/thumbnail.png metacity-1/.
+cp xfwm4/close-active.png metacity-1/close.png
+cp xfwm4/close-prelight.png metacity-1/close_prelight.png
+cp xfwm4/close-pressed.png metacity-1/close_pressed.png
+###
+### unity versions
+cd unity
+cp -s ../metacity-1/close.png .
+cp -s ../metacity-1/close.png close_focused_normal.png
+cp -s ../metacity-1/close_prelight.png close_focused_prelight.png
+cp -s ../metacity-1/close_prelight.png close_unfocused_prelight.png
+cp -s ../metacity-1/close_pressed.png close_focused_pressed.png
+cp -s ../metacity-1/close_pressed.png close_unfocused_pressed.png
+cd .. # parent folder: "04-Crunchy-grey"
+cd .. # parent folder: "xfwm4-metacity-unity"
+
+#################
+# green buttons #
+#################
+cd 00-svgSource/05-green
+mkdir -p xfwm4
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" xfwm4/"{}.png"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "xfwm4-metacity-unity"
+mv 00-svgSource/05-green/xfwm4/* 05-Crunchy-green/xfwm4
+rm -f -r 00-svgSource/05-green/xfwm4
+##
+## metacity versions
+cd 05-Crunchy-green
+cp -f ../00-svgSource/05-green/thumbnail.png metacity-1/.
+cp xfwm4/close-active.png metacity-1/close.png
+cp xfwm4/close-prelight.png metacity-1/close_prelight.png
+cp xfwm4/close-pressed.png metacity-1/close_pressed.png
+###
+### unity versions
+cd unity
+cp -s ../metacity-1/close.png .
+cp -s ../metacity-1/close.png close_focused_normal.png
+cp -s ../metacity-1/close_prelight.png close_focused_prelight.png
+cp -s ../metacity-1/close_prelight.png close_unfocused_prelight.png
+cp -s ../metacity-1/close_pressed.png close_focused_pressed.png
+cp -s ../metacity-1/close_pressed.png close_unfocused_pressed.png
+cd .. # parent folder: "05-Crunchy-green"
+cd .. # parent folder: "xfwm4-metacity-unity"
+
+# SQ VERSIONS
+######################
+mkdir -p 02-Crunchy-orange_SQ
+mkdir -p 02-Crunchy-orange_SQ/xfwm4
+mkdir -p 02-Crunchy-orange_SQ/metacity-1
+mkdir -p 02-Crunchy-orange_SQ/unity
+cd 02-Crunchy-orange_SQ/xfwm4
+cp -s ../../02-Crunchy-orange/xfwm4/* .
+rm close*
+rm hide*
+rm maximize*
+find ../../00-svgSource/00-common_SQ/. -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none ../../00-svgSource/00-common_SQ/"{}.svg" "{}.png"
+cd ../metacity-1
+cp -s ../../02-Crunchy-orange/metacity-1/* .
+rm close*
+rm minimize*
+rm maximize*
+rm unmax*
+rm thumbnail*
+rm metacity*
+cp ../../02-Crunchy-orange/metacity-1/metacity* .
+cp ../xfwm4/close-inactive.png close_unfocused.png
+cp ../xfwm4/maximize-active.png maximize.png
+cp ../xfwm4/maximize-prelight.png maximize_prelight.png
+cp ../xfwm4/maximize-pressed.png maximize_pressed.png
+cp ../xfwm4/maximize-inactive.png maximize_unfocused.png
+cp ../xfwm4/hide-active.png minimize.png
+cp ../xfwm4/hide-prelight.png minimize_prelight.png
+cp ../xfwm4/hide-pressed.png minimize_pressed.png
+cp ../xfwm4/hide-inactive.png minimize_unfocused.png
+cp ../xfwm4/maximize-toggled-active.png unmaximize.png
+cp ../xfwm4/maximize-toggled-prelight.png unmaximize_prelight.png
+cp ../xfwm4/maximize-toggled-pressed.png unmaximize_pressed.png
+cp ../xfwm4/maximize-toggled-inactive.png unmaximize_unfocused.png
+cd ../unity
+cp -s ../metacity-1/close_unfocused.png .
+cp -s ../metacity-1/maximize.png .
+cp -s ../metacity-1/maximize.png maximize_focused_normal.png
+cp -s ../metacity-1/maximize_unfocused.png .
+cp -s ../metacity-1/maximize_prelight.png maximize_focused_prelight.png
+cp -s ../metacity-1/maximize_prelight.png maximize_unfocused_prelight.png
+cp -s ../metacity-1/maximize_pressed.png maximize_focused_pressed.png
+cp -s ../metacity-1/maximize_pressed.png maximize_unfocused_pressed.png
+cp -s ../metacity-1/minimize.png .
+cp -s ../metacity-1/minimize.png minimize_focused_normal.png
+cp -s ../metacity-1/minimize_unfocused.png .
+cp -s ../metacity-1/minimize_prelight.png minimize_focused_prelight.png
+cp -s ../metacity-1/minimize_prelight.png minimize_unfocused_prelight.png
+cp -s ../metacity-1/minimize_pressed.png minimize_focused_pressed.png
+cp -s ../metacity-1/minimize_pressed.png minimize_unfocused_pressed.png
+cp -s ../metacity-1/unmaximize.png .
+cp -s ../metacity-1/unmaximize.png unmaximize_focused_normal.png
+cp -s ../metacity-1/unmaximize_unfocused.png .
+cp -s ../metacity-1/unmaximize_prelight.png unmaximize_focused_prelight.png
+cp -s ../metacity-1/unmaximize_prelight.png unmaximize_unfocused_prelight.png
+cp -s ../metacity-1/unmaximize_pressed.png unmaximize_focused_pressed.png
+cp -s ../metacity-1/unmaximize_pressed.png unmaximize_unfocused_pressed.png
+cd ../..
+cp -r 02-Crunchy-orange_SQ 03-Crunchy-blue_SQ
+cp -r 02-Crunchy-orange_SQ 04-Crunchy-grey_SQ
+cp -r 02-Crunchy-orange_SQ 05-Crunchy-green_SQ
+
+cd 02-Crunchy-orange_SQ/xfwm4
+find ../../00-svgSource/02-orange_SQ/. -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none ../../00-svgSource/02-orange_SQ/"{}.svg" "{}.png"
+cd ../metacity-1
+cp ../../00-svgSource/02-orange_SQ/thumbnail.png .
+cp ../xfwm4/close-active.png close.png
+cp ../xfwm4/close-prelight.png close_prelight.png
+cp ../xfwm4/close-pressed.png close_pressed.png
+cd ../unity
+cp -s ../metacity-1/close.png .
+cp -s ../metacity-1/close.png close_focused_normal.png
+cp -s ../metacity-1/close_prelight.png close_focused_prelight.png
+cp -s ../metacity-1/close_prelight.png close_unfocused_prelight.png
+cp -s ../metacity-1/close_pressed.png close_focused_pressed.png
+cp -s ../metacity-1/close_pressed.png close_unfocused_pressed.png
+
+cd ../../03-Crunchy-blue_SQ//xfwm4
+find ../../00-svgSource/03-blue_SQ/. -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none ../../00-svgSource/03-blue_SQ/"{}.svg" "{}.png"
+cd ../metacity-1
+cp ../../00-svgSource/03-blue_SQ/thumbnail.png .
+cp ../xfwm4/close-active.png close.png
+cp ../xfwm4/close-prelight.png close_prelight.png
+cp ../xfwm4/close-pressed.png close_pressed.png
+cd ../unity
+cp -s ../metacity-1/close.png .
+cp -s ../metacity-1/close.png close_focused_normal.png
+cp -s ../metacity-1/close_prelight.png close_focused_prelight.png
+cp -s ../metacity-1/close_prelight.png close_unfocused_prelight.png
+cp -s ../metacity-1/close_pressed.png close_focused_pressed.png
+cp -s ../metacity-1/close_pressed.png close_unfocused_pressed.png
+
+cd ../../04-Crunchy-grey_SQ//xfwm4
+find ../../00-svgSource/04-grey_SQ/. -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none ../../00-svgSource/04-grey_SQ/"{}.svg" "{}.png"
+cd ../metacity-1
+cp ../../00-svgSource/04-grey_SQ/thumbnail.png .
+cp ../xfwm4/close-active.png close.png
+cp ../xfwm4/close-prelight.png close_prelight.png
+cp ../xfwm4/close-pressed.png close_pressed.png
+cd ../unity
+cp -s ../metacity-1/close.png .
+cp -s ../metacity-1/close.png close_focused_normal.png
+cp -s ../metacity-1/close_prelight.png close_focused_prelight.png
+cp -s ../metacity-1/close_prelight.png close_unfocused_prelight.png
+cp -s ../metacity-1/close_pressed.png close_focused_pressed.png
+cp -s ../metacity-1/close_pressed.png close_unfocused_pressed.png
+
+cd ../../05-Crunchy-green_SQ//xfwm4
+find ../../00-svgSource/05-green_SQ/. -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none ../../00-svgSource/05-green_SQ/"{}.svg" "{}.png"
+cd ../metacity-1
+cp ../../00-svgSource/05-green_SQ/thumbnail.png .
+cp ../xfwm4/close-active.png close.png
+cp ../xfwm4/close-prelight.png close_prelight.png
+cp ../xfwm4/close-pressed.png close_pressed.png
+cd ../unity
+cp -s ../metacity-1/close.png .
+cp -s ../metacity-1/close.png close_focused_normal.png
+cp -s ../metacity-1/close_prelight.png close_focused_prelight.png
+cp -s ../metacity-1/close_prelight.png close_unfocused_prelight.png
+cp -s ../metacity-1/close_pressed.png close_focused_pressed.png
+cp -s ../metacity-1/close_pressed.png close_unfocused_pressed.png

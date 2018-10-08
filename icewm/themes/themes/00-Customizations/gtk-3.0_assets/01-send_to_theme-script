@@ -1,0 +1,16 @@
+#!/bin/sh
+# script to move the converted files to the theme
+cd .. # parent folder: "00-Customizations"
+cd .. # parent folder: "themes"
+cd .. # parent folder: where "themes" is (if the folder name have had changed, change the commands below)
+cp --remove-destination -r themes/00-Customizations/gtk-3.0_assets/02-Crunchy-orange themes
+cp --remove-destination -r themes/00-Customizations/gtk-3.0_assets/03-Crunchy-blue themes
+cp --remove-destination -r themes/00-Customizations/gtk-3.0_assets/04-Crunchy-grey themes
+cp --remove-destination -r themes/00-Customizations/gtk-3.0_assets/05-Crunchy-green themes
+
+# remove copied folders
+cd themes/00-Customizations/gtk-3.0_assets
+rm -f -r 02*
+rm -f -r 03*
+rm -f -r 04*
+rm -f -r 05*

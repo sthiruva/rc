@@ -1,0 +1,143 @@
+#!/bin/sh
+# script to convert and copy the gtk-3.0 assets files
+
+# remove old versions of converted files
+rm -f -r 02*
+rm -f -r 03*
+rm -f -r 04*
+rm -f -r 05*
+
+# common buttons
+cd 00-svgSource/00-common
+mkdir -p assets
+mkdir -p temp
+inkscape check-backdrop.svg -e temp/check-backdrop.png
+inkscape check-disabled.svg -e temp/check-disabled.png
+inkscape check_mixed-backdrop.svg -e temp/check_mixed-backdrop.png
+inkscape check_mixed-disabled.svg -e temp/check_mixed-disabled.png
+inkscape radio-.svg -e temp/radio-.png
+inkscape radio-backdrop.svg -e temp/radio-backdrop.png
+inkscape radio-disabled.svg -e temp/radio-disabled.png
+inkscape radio_mixed-.svg -e temp/radio_mixed-.png
+inkscape radio_mixed-backdrop.svg -e temp/radio_mixed-backdrop.png
+inkscape radio_mixed-disabled.svg -e temp/radio_mixed-disabled.png
+inkscape slider-horizontal.svg -e temp/slider-horizontal.png
+inkscape slider-horizontal-disabled.svg -e temp/slider-horizontal-disabled.png
+inkscape slider-horizontal-hover.svg -e temp/slider-horizontal-hover.png
+inkscape slider-vertical.svg -e temp/slider-vertical.png
+inkscape slider-vertical-disabled.svg -e temp/slider-vertical-disabled.png
+inkscape slider-vertical-hover.svg -e temp/slider-vertical-hover.png
+cd temp
+find . -name "*png" | xargs -l -i basename "{}" ".png" | xargs -l -i  convert -depth 6 "{}.png" ../assets/"{}.png"
+cd .. # parent folder: "00-common"
+rm -f -r temp
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "gtk-3.0_assets"
+mkdir -p 02-Crunchy-orange
+mkdir -p 02-Crunchy-orange/gtk-3.0
+mv 00-svgSource/00-common/assets 02-Crunchy-orange/gtk-3.0
+###
+### creation of other colored version folders
+cp -d -r 02-Crunchy-orange 03-Crunchy-blue
+cp -d -r 02-Crunchy-orange 04-Crunchy-grey
+cp -d -r 02-Crunchy-orange 05-Crunchy-green
+
+##################
+# orange buttons #
+##################
+cd 00-svgSource/02-orange
+mkdir -p assets
+mkdir -p temp
+inkscape check-.svg -e temp/check-.png
+inkscape check-hover.svg -e temp/check-hover.png
+inkscape check_mixed-.svg -e temp/check_mixed-.png
+inkscape check_mixed-hover.svg -e temp/check_mixed-hover.png
+inkscape radio-hover.svg -e temp/radio-hover.png
+inkscape radio_mixed-hover.svg -e temp/radio_mixed-hover.png
+inkscape slider-horizontal-focused.svg -e temp/slider-horizontal-focused.png
+inkscape slider-horizontal-focused-hover.svg -e temp/slider-horizontal-focused-hover.png
+inkscape slider-vertical-focused.svg -e temp/slider-vertical-focused.png
+inkscape slider-vertical-focused-hover.svg -e temp/slider-vertical-focused-hover.png
+cd temp
+find . -name "*png" | xargs -l -i basename "{}" ".png" | xargs -l -i  convert -depth 6 "{}.png" ../assets/"{}.png"
+cd .. # parent folder: "02-orange"
+rm -f -r temp
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "gtk-3.0_assets"
+mv 00-svgSource/02-orange/assets/* 02-Crunchy-orange/gtk-3.0/assets
+rm -f -r 00-svgSource/02-orange/assets
+
+##################
+# blue buttons #
+##################
+cd 00-svgSource/03-blue
+mkdir -p assets
+mkdir -p temp
+inkscape check-.svg -e temp/check-.png
+inkscape check-hover.svg -e temp/check-hover.png
+inkscape check_mixed-.svg -e temp/check_mixed-.png
+inkscape check_mixed-hover.svg -e temp/check_mixed-hover.png
+inkscape radio-hover.svg -e temp/radio-hover.png
+inkscape radio_mixed-hover.svg -e temp/radio_mixed-hover.png
+inkscape slider-horizontal-focused.svg -e temp/slider-horizontal-focused.png
+inkscape slider-horizontal-focused-hover.svg -e temp/slider-horizontal-focused-hover.png
+inkscape slider-vertical-focused.svg -e temp/slider-vertical-focused.png
+inkscape slider-vertical-focused-hover.svg -e temp/slider-vertical-focused-hover.png
+cd temp
+find . -name "*png" | xargs -l -i basename "{}" ".png" | xargs -l -i  convert -depth 6 "{}.png" ../assets/"{}.png"
+cd .. # parent folder: "03-blue"
+rm -f -r temp
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "gtk-3.0_assets"
+mv 00-svgSource/03-blue/assets/* 03-Crunchy-blue/gtk-3.0/assets
+rm -f -r 00-svgSource/03-blue/assets
+
+##################
+# grey buttons #
+##################
+cd 00-svgSource/04-grey
+mkdir -p assets
+mkdir -p temp
+inkscape check-.svg -e temp/check-.png
+inkscape check-hover.svg -e temp/check-hover.png
+inkscape check_mixed-.svg -e temp/check_mixed-.png
+inkscape check_mixed-hover.svg -e temp/check_mixed-hover.png
+inkscape radio-hover.svg -e temp/radio-hover.png
+inkscape radio_mixed-hover.svg -e temp/radio_mixed-hover.png
+inkscape slider-horizontal-focused.svg -e temp/slider-horizontal-focused.png
+inkscape slider-horizontal-focused-hover.svg -e temp/slider-horizontal-focused-hover.png
+inkscape slider-vertical-focused.svg -e temp/slider-vertical-focused.png
+inkscape slider-vertical-focused-hover.svg -e temp/slider-vertical-focused-hover.png
+cd temp
+find . -name "*png" | xargs -l -i basename "{}" ".png" | xargs -l -i  convert -depth 6 "{}.png" ../assets/"{}.png"
+cd .. # parent folder: "04-grey"
+rm -f -r temp
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "gtk-3.0_assets"
+mv 00-svgSource/04-grey/assets/* 04-Crunchy-grey/gtk-3.0/assets
+rm -f -r 00-svgSource/04-grey/assets
+
+##################
+# green buttons #
+##################
+cd 00-svgSource/05-green
+mkdir -p assets
+mkdir -p temp
+inkscape check-.svg -e temp/check-.png
+inkscape check-hover.svg -e temp/check-hover.png
+inkscape check_mixed-.svg -e temp/check_mixed-.png
+inkscape check_mixed-hover.svg -e temp/check_mixed-hover.png
+inkscape radio-hover.svg -e temp/radio-hover.png
+inkscape radio_mixed-hover.svg -e temp/radio_mixed-hover.png
+inkscape slider-horizontal-focused.svg -e temp/slider-horizontal-focused.png
+inkscape slider-horizontal-focused-hover.svg -e temp/slider-horizontal-focused-hover.png
+inkscape slider-vertical-focused.svg -e temp/slider-vertical-focused.png
+inkscape slider-vertical-focused-hover.svg -e temp/slider-vertical-focused-hover.png
+cd temp
+find . -name "*png" | xargs -l -i basename "{}" ".png" | xargs -l -i  convert -depth 6 "{}.png" ../assets/"{}.png"
+cd .. # parent folder: "05-green"
+rm -f -r temp
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "gtk-3.0_assets"
+mv 00-svgSource/05-green/assets/* 05-Crunchy-green/gtk-3.0/assets
+rm -f -r 00-svgSource/05-green/assets

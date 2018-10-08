@@ -1,0 +1,46 @@
+#!/bin/sh
+# script to move the converted files to the theme
+cd .. # parent folder: "00-Customizations"
+cd .. # parent folder: "themes"
+cd .. # parent folder: where "themes" is (if the folder name have had changed, change the commands below)
+
+rm -f -r themes/02-Crunchy-orange/xfwm4
+rm -f -r themes/02-Crunchy-orange/metacity-1
+rm -f -r themes/02-Crunchy-orange/unity
+rm -f -r themes/03-Crunchy-blue/xfwm4
+rm -f -r themes/03-Crunchy-blue/metacity-1
+rm -f -r themes/03-Crunchy-blue/unity
+rm -f -r themes/04-Crunchy-grey/xfwm4
+rm -f -r themes/04-Crunchy-grey/metacity-1
+rm -f -r themes/04-Crunchy-grey/unity
+rm -f -r themes/05-Crunchy-green/xfwm4
+rm -f -r themes/05-Crunchy-green/metacity-1
+rm -f -r themes/05-Crunchy-green/unity
+rm -f -r themes/02-Crunchy-orange_SQ/xfwm4
+rm -f -r themes/02-Crunchy-orange_SQ/metacity-1
+rm -f -r themes/02-Crunchy-orange_SQ/unity
+rm -f -r themes/03-Crunchy-blue_SQ/xfwm4
+rm -f -r themes/03-Crunchy-blue_SQ/metacity-1
+rm -f -r themes/03-Crunchy-blue_SQ/unity
+rm -f -r themes/04-Crunchy-grey_SQ/xfwm4
+rm -f -r themes/04-Crunchy-grey_SQ/metacity-1
+rm -f -r themes/04-Crunchy-grey_SQ/unity
+rm -f -r themes/05-Crunchy-green_SQ/xfwm4
+rm -f -r themes/05-Crunchy-green_SQ/metacity-1
+rm -f -r themes/05-Crunchy-green_SQ/unity
+
+cp --remove-destination -r themes/00-Customizations/xfwm4-metacity-unity/02-Crunchy-orange themes
+cp --remove-destination -r themes/00-Customizations/xfwm4-metacity-unity/02-Crunchy-orange_SQ themes
+cp --remove-destination -r themes/00-Customizations/xfwm4-metacity-unity/03-Crunchy-blue themes
+cp --remove-destination -r themes/00-Customizations/xfwm4-metacity-unity/03-Crunchy-blue_SQ themes
+cp --remove-destination -r themes/00-Customizations/xfwm4-metacity-unity/04-Crunchy-grey themes
+cp --remove-destination -r themes/00-Customizations/xfwm4-metacity-unity/04-Crunchy-grey_SQ themes
+cp --remove-destination -r themes/00-Customizations/xfwm4-metacity-unity/05-Crunchy-green themes
+cp --remove-destination -r themes/00-Customizations/xfwm4-metacity-unity/05-Crunchy-green_SQ themes
+
+# remove copied folders
+cd themes/00-Customizations/xfwm4-metacity-unity
+rm -f -r 02*
+rm -f -r 03*
+rm -f -r 04*
+rm -f -r 05*

@@ -1,0 +1,39 @@
+#!/bin/sh
+# script to copy the svg file for gtk-2.0 in each flavour of the theme
+
+# remove old versions of converted files
+rm -f -r 02*
+rm -f -r 03*
+rm -f -r 04*
+rm -f -r 05*
+
+# make it for the first flavour
+cd 00-svgSource
+mkdir -p apps
+mkdir -p apps/img
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  convert -depth 6 -background none "{}.svg" apps/img/"{}.png"
+cd .. # parent folder: "gtk-2.0-img"
+mkdir -p 02-Crunchy-orange
+mkdir -p 02-Crunchy-orange/gtk-2.0
+mv 00-svgSource/apps 02-Crunchy-orange/gtk-2.0
+##
+## creation of other colored version folders
+cp -d -r 02-Crunchy-orange 03-Crunchy-blue
+cp -d -r 02-Crunchy-orange 04-Crunchy-grey
+cp -d -r 02-Crunchy-orange 05-Crunchy-green
+
+### copy that folders to the theme
+cd .. # parent folder: "00-Customizations"
+cd .. # parent folder: "themes"
+cd .. # parent folder: where "themes" is (if the folder name have had changed, change the commands below)
+cp --remove-destination -r themes/00-Customizations/gtk-2.0-img/02-Crunchy-orange themes
+cp --remove-destination -r themes/00-Customizations/gtk-2.0-img/03-Crunchy-blue themes
+cp --remove-destination -r themes/00-Customizations/gtk-2.0-img/04-Crunchy-grey themes
+cp --remove-destination -r themes/00-Customizations/gtk-2.0-img/05-Crunchy-green themes
+
+#### remove copied folders
+cd themes/00-Customizations/gtk-2.0-img
+rm -f -r 02*
+rm -f -r 03*
+rm -f -r 04*
+rm -f -r 05*

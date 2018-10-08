@@ -1,0 +1,10 @@
+#!/bin/sh
+# script to copy files to the fluxbox theme
+cd .. # parent folder: "00-Customizations"
+cd .. # parent folder: "themes"
+cd .. # parent folder: where "themes" is (if the folder name have had changed, change the commands below)
+cp --remove-destination -r themes/00-Customizations/fluxbox/styles fluxbox
+
+# remove copied folders
+cd themes/00-Customizations/fluxbox
+rm -f -r styles

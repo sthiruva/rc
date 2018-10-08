@@ -1,0 +1,6 @@
+To use theses scripts, you must install imagemagick and inkscape. 
+As in Nautilus (in Ubuntu 13.04), you can't launch a script with a double clic on it, it's recommanded to install the command "launch a terminal here" in the right clic. 
+sudo apt-get install imagemagick inkscape
+
+for those of you who are running Ubuntu :
+sudo apt-get install nautilus-open-terminal

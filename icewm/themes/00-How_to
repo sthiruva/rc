@@ -1,0 +1,42 @@
+HOW TO INSTALL THE THEME
+************************
+
+Open a terminal, go to where the compressed file is (with the command for example: "cd Downloads") and copy and paste this command:
+
+with sudo:
+----------
+sudo tar -zxvf 136162-Crunchy-themes.tar.gz -C /usr/share
+
+with su (if you don't have sudo):
+---------------------------------
+su
+tar -zxvf 136162-Crunchy-themes.tar.gz -C /usr/share
+
+In Gnome-shell, open 'gnome-tweak'
+In Ubuntu, install and use 'unity-tweak'
+Elsewhere, the Control Center Settings Manager is easy to use to change in the "appearance" (gtk theme) & the "window manager" (window decoration)
+
+GNOME-SHELL NEW SETTINGS
+========================
+If you use either the "Gnome-Classic" session or the extension "Window-List", you can customize this extension.
+
+2 files are already copied (with _Crunchy in the name inside the extension folder). It's because we can't theme it. So you have to save the original file and then, copy the "crunchy" ones instead :
+
+in a terminal:
+su
+password
+cd /usr/share/gnome-shell/extensions/window-list@gnome-shell-extensions.gcampax.github.com
+cp classic.css classic_Origin.css
+cp stylesheet.css stylesheet_Origin.css
+cp classic_Crunchy.css classic.css
+cp stylesheet_Crunchy.css stylesheet.css
+
+HOW TO UNINSTALL THE THEME
+**************************
+
+Open a terminal and paste these command lines:
+
+sudo rm -f -r /usr/share/fluxbox/styles/0*Crunchy*
+sudo rm -f -r /usr/share/icewm/themes/0*Crunchy*
+sudo rm -f -r /usr/share/themes/00-Customizations
+sudo rm -f -r /usr/share/themes/0*Crunchy*

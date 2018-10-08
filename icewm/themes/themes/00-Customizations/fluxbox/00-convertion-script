@@ -1,0 +1,171 @@
+#!/bin/sh
+# script to convert and copy files in fluxbox
+
+# remove old versions of converted files
+rm -f -r sty*
+
+# common buttons
+cd 00-svgSource/00-common
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "fluxbox"
+mkdir -p styles
+mkdir -p styles/02-Crunchy-orange
+mv 00-svgSource/00-common/pixmaps styles/02-Crunchy-orange
+
+## symbolic links
+cd styles/02-Crunchy-orange/pixmaps
+cp -s title-background.xpm toolbar-background.xpm
+cd .. # parent folder: "02-Crunchy-orange"
+cd .. # parent folder: "styles"
+cd .. # parent folder: "fluxbox"
+
+###
+### creation of other colored version folders
+cp -d -r styles/02-Crunchy-orange/ styles/03-Crunchy-blue
+cp -d -r styles/02-Crunchy-orange/ styles/04-Crunchy-grey
+cp -d -r styles/02-Crunchy-orange/ styles/05-Crunchy-green
+mkdir -p styles/02-Crunchy-orange_SQ
+mkdir -p styles/02-Crunchy-orange_SQ/pixmaps
+mkdir -p styles/03-Crunchy-blue_SQ
+mkdir -p styles/03-Crunchy-blue_SQ/pixmaps
+mkdir -p styles/04-Crunchy-grey_SQ
+mkdir -p styles/04-Crunchy-grey_SQ/pixmaps
+mkdir -p styles/05-Crunchy-green_SQ
+mkdir -p styles/05-Crunchy-green_SQ/pixmaps
+
+cd styles/02-Crunchy-orange_SQ/pixmaps
+cp -s ../../02-Crunchy-orange/pixmaps/* .
+rm close*
+rm minimize*
+rm maximize*
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/close-unfocus.svg close-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-focus.svg maximize-focus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-unfocus.svg maximize-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-pressed.svg maximize-pressed.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-focus.svg minimize-focus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-unfocus.svg minimize-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-pressed.svg minimize-pressed.xpm
+cd ../../02-Crunchy-orange
+cp ../../00-svgSource/02-orange/theme.cfg .
+cd ../02-Crunchy-orange_SQ
+cp -s ../02-Crunchy-orange/theme.cfg .
+
+cd ../03-Crunchy-blue_SQ/pixmaps
+cp -s ../../03-Crunchy-blue/pixmaps/* .
+rm close*
+rm minimize*
+rm maximize*
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/close-unfocus.svg close-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-focus.svg maximize-focus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-unfocus.svg maximize-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-pressed.svg maximize-pressed.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-focus.svg minimize-focus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-unfocus.svg minimize-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-pressed.svg minimize-pressed.xpm
+cd ../../03-Crunchy-blue
+cp ../../00-svgSource/03-blue/theme.cfg .
+cd ../03-Crunchy-blue_SQ
+cp -s ../03-Crunchy-blue/theme.cfg .
+
+cd ../04-Crunchy-grey_SQ/pixmaps
+cp -s ../../04-Crunchy-grey/pixmaps/* .
+rm close*
+rm minimize*
+rm maximize*
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/close-unfocus.svg close-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-focus.svg maximize-focus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-unfocus.svg maximize-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-pressed.svg maximize-pressed.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-focus.svg minimize-focus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-unfocus.svg minimize-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-pressed.svg minimize-pressed.xpm
+cd ../../04-Crunchy-grey
+cp ../../00-svgSource/04-grey/theme.cfg .
+cd ../04-Crunchy-grey_SQ
+cp -s ../04-Crunchy-grey/theme.cfg .
+
+cd ../05-Crunchy-green_SQ/pixmaps
+cp -s ../../05-Crunchy-green/pixmaps/* .
+rm close*
+rm minimize*
+rm maximize*
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/close-unfocus.svg close-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-focus.svg maximize-focus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-unfocus.svg maximize-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/maximize-pressed.svg maximize-pressed.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-focus.svg minimize-focus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-unfocus.svg minimize-unfocus.xpm
+convert -depth 8 -background none ../../../00-svgSource/00-common_SQ/minimize-pressed.svg minimize-pressed.xpm
+cd ../../05-Crunchy-green
+cp ../../00-svgSource/05-green/theme.cfg .
+cd ../05-Crunchy-green_SQ
+cp -s ../05-Crunchy-green/theme.cfg .
+
+cd .. # parent folder: "styles"
+cd .. # parent folder: "fluxbox"
+
+##################
+# orange buttons #
+##################
+cd 00-svgSource/02-orange
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd ../02-orange_SQ
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "fluxbox"
+cp -d -r 00-svgSource/02-orange/pixmaps/* styles/02-Crunchy-orange/pixmaps/.
+rm -f -r 00-svgSource/02-orange/pixmaps
+cp -d -r 00-svgSource/02-orange_SQ/pixmaps/* styles/02-Crunchy-orange_SQ/pixmaps/.
+rm -f -r 00-svgSource/02-orange_SQ/pixmaps
+
+################
+# blue buttons #
+################
+cd 00-svgSource/03-blue
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd ../03-blue_SQ
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "fluxbox"
+cp -d -r 00-svgSource/03-blue/pixmaps/* styles/03-Crunchy-blue/pixmaps/.
+rm -f -r 00-svgSource/03-blue/pixmaps
+cp -d -r 00-svgSource/03-blue_SQ/pixmaps/* styles/03-Crunchy-blue_SQ/pixmaps/.
+rm -f -r 00-svgSource/03-blue_SQ/pixmaps
+
+################
+# grey buttons #
+################
+cd 00-svgSource/04-grey
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd ../04-grey_SQ
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "fluxbox"
+cp -d -r 00-svgSource/04-grey/pixmaps/* styles/04-Crunchy-grey/pixmaps/.
+rm -f -r 00-svgSource/04-grey/pixmaps
+cp -d -r 00-svgSource/04-grey_SQ/pixmaps/* styles/04-Crunchy-grey_SQ/pixmaps/.
+rm -f -r 00-svgSource/04-grey_SQ/pixmaps
+
+#################
+# green buttons #
+#################
+cd 00-svgSource/05-green
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd ../05-green_SQ
+mkdir -p pixmaps
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i convert -depth 8 -background none "{}.svg" pixmaps/"{}.xpm"
+cd .. # parent folder: "00-svgSource"
+cd .. # parent folder: "fluxbox"
+cp -d -r 00-svgSource/05-green/pixmaps/* styles/05-Crunchy-green/pixmaps/.
+rm -f -r 00-svgSource/05-green/pixmaps
+cp -d -r 00-svgSource/05-green_SQ/pixmaps/* styles/05-Crunchy-green_SQ/pixmaps/.
+rm -f -r 00-svgSource/05-green_SQ/pixmaps

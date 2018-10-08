@@ -1,0 +1,41 @@
+#!/bin/sh
+# script
+mkdir -p gtk-2.0
+cd gtk-2.0
+cp -s ../../02-Crunchy-orange/gtk-2.0/* .
+mkdir -p apps
+cd apps
+cp -s ../../../02-Crunchy-orange/gtk-2.0/apps/* .
+mkdir -p img
+cd img
+cp -s ../../../../02-Crunchy-orange/gtk-2.0/apps/img/* .
+
+cd ../../..
+mkdir -p gtk-3.0
+cd gtk-3.0
+cp -s ../../02-Crunchy-orange/gtk-3.0/* .
+mkdir -p apps
+cd apps
+cp -s ../../../02-Crunchy-orange/gtk-3.0/apps/* .
+cp -r ../../../00-Customizations/gtk-3.0_assets/00-svgSource/gtk3-window-deco* .
+cd ..
+mkdir -p assets
+cd assets
+cp -s ../../../02-Crunchy-orange/gtk-3.0/assets/* .
+
+cd ../..
+mkdir -p xfce-notify-4.0
+cd xfce-notify-4.0
+cp -s ../../02-Crunchy-orange/xfce-notify-4.0/* .
+
+cd ..
+mkdir -p metacity-1
+# cp -d -r ../02-Crunchy-orange/metacity-1/metacity-theme-1.xml metacity-1/.
+mkdir -p unity
+mkdir -p xfwm4
+# cp -d -r ../02-Crunchy-orange/xfwm4/themerc xfwm4/.
+cp -d -r ../02-Crunchy-orange/xfwm4/bottom* xfwm4/.
+cp -d -r ../02-Crunchy-orange/xfwm4/left* xfwm4/.
+cp -d -r ../02-Crunchy-orange/xfwm4/right* xfwm4/.
+cp -d -r ../02-Crunchy-orange/xfwm4/title* xfwm4/.
+cp -d -r ../02-Crunchy-orange/xfwm4/top* xfwm4/.

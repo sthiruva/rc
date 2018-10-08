@@ -1,0 +1,34 @@
+#!/bin/sh
+# script to convert and copy files in openbox
+
+# remove old versions of converted files
+rm -f -r 02*
+rm -f -r 03*
+rm -f -r 04*
+rm -f -r 05*
+
+# rounded buttons
+cd 00-rounded
+mkdir -p openbox-3
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  convert -depth 1 -background white "{}.svg" openbox-3/"{}.xbm"
+cd .. # parent folder: "openbox-buttons"
+mkdir -p 02-Crunchy-orange
+mv 00-rounded/openbox-3 02-Crunchy-orange
+###
+### creation of other colored version folders
+cp -d -r 02-Crunchy-orange 03-Crunchy-blue
+cp -d -r 02-Crunchy-orange 04-Crunchy-grey
+cp -d -r 02-Crunchy-orange 05-Crunchy-green
+
+# squared buttons
+cd 00-squared
+mkdir -p openbox-3
+find . -name "*svg" | xargs -l -i basename "{}" ".svg" | xargs -l -i  convert -depth 1 -background white "{}.svg" openbox-3/"{}.xbm"
+cd .. # parent folder: "openbox-buttons"
+mkdir -p 02-Crunchy-orange_SQ
+mv 00-squared/openbox-3 02-Crunchy-orange_SQ
+###
+### creation of other colored version folders
+cp -d -r 02-Crunchy-orange_SQ 03-Crunchy-blue_SQ
+cp -d -r 02-Crunchy-orange_SQ 04-Crunchy-grey_SQ
+cp -d -r 02-Crunchy-orange_SQ 05-Crunchy-green_SQ
