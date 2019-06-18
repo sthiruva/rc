@@ -4,13 +4,13 @@
 "set guifont=DejaVu\ Sans\ Mono\ 10
 
 "set guifont=ProggyCleanTT\ CE\ 12
-set  guifont=Ubuntu\ Mono\ 12
+set  guifont=Ubuntu\ Mono\ 11
 
 
 
 "colorscheme torte
 "set bg=light
-colorscheme mayansmoke
+"colorscheme mayansmoke
 "colorscheme desert-warm-256
 "colorscheme desert-warm-256
 "colorscheme delek
@@ -22,7 +22,7 @@ colorscheme mayansmoke
 
 "set cursorline
 
-set guifont=Ubuntu\ Mono\ 13
+"set guifont=Ubuntu\ Mono\ 13
 
 
 "winpos 250 30

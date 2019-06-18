@@ -1,37 +1,26 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 
-Plugin 'rust-lang/rust.vim'
-Plugin 'https://github.com/kien/ctrlp.vim.git'
 
-Bundle 'ntpeters/vim-better-whitespace'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'desert-warm-256'
+Plug 'ntpeters/vim-better-whitespace'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+
+" Nice status bar
+Plug 'bling/vim-airline'
+
+Plug 'ctrlpvim/ctrlp.vim'
+
+""From: https://bluz71.github.io/2017/10/26/turbocharge-the-ctrlp-vim-plugin.html
+let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
+let g:ctrlp_use_caching = 0
+noremap <C-p>       :CtrlPMixed<CR>
+
+
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'lifepillar/vim-solarized8'
+
+call plug#end()
+
 
 
 
@@ -119,10 +108,10 @@ autocmd BufRead,BufNewFile *.txt,*.asciidoc,*.adoc,README,TODO,CHANGELOG,NOTES,A
         \ formatlistpat=^\\s*\\d\\+\\.\\s\\+\\\\|^\\s*<\\d\\+>\\s\\+\\\\|^\\s*[a-zA-Z.]\\.\\s\\+\\\\|^\\s*[ivxIVX]\\+\\.\\s\\+
         \ comments=s1:/*,ex:*/,://,b:#,:%,:XCOMM,fb:-,fb:*,fb:+,fb:.,fb:>
 
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
+"let g:ctrlp_prompt_mappings = {
+"    \ 'AcceptSelection("e")': ['<c-t>'],
+"    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+"    \ }
 noremap <M-Right> :tabnext
 noremap <M-Left>  :tabprev
 
@@ -145,3 +134,7 @@ noremap <C-S-c> "+y
 noremap <C-S-p> "+gP
 
 
+set background=light
+colorscheme  PaperColor
+
+:tnoremap <Esc> <C-\><C-n>
