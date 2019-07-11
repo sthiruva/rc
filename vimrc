@@ -1,3 +1,5 @@
+" Install plug with command in a terminal: 
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
 
@@ -8,20 +10,26 @@ Plug 'ntpeters/vim-better-whitespace'
 " Nice status bar
 Plug 'bling/vim-airline'
 
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 
 ""From: https://bluz71.github.io/2017/10/26/turbocharge-the-ctrlp-vim-plugin.html
-let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
-let g:ctrlp_use_caching = 0
-noremap <C-p>       :CtrlPMixed<CR>
+"let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
+"let g:ctrlp_use_caching = 0
+"noremap <C-p>       :CtrlPMixed<CR>
 
 
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'lifepillar/vim-solarized8'
 
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
+
+
+
 call plug#end()
 
 
+map <C-p>       :Files<CR>
 
 
 " These are my extensions
@@ -72,7 +80,7 @@ inoremap <C-h> <Esc>i
 
 noremap <C-Left>    :tabprev<CR>
 noremap <C-Right>   :tabnext<CR>
-noremap <C-p>       :CtrlPMixed<CR>
+"noremap <C-p>       :CtrlPMixed<CR>
 
 noremap <A-0> :tabn 0
 noremap <A-1> :tabn 1
@@ -83,7 +91,7 @@ noremap <A-5> :tabn 5
 noremap <A-6> :tabn 6
 noremap <A-7> :tabn 7
 
-autocmd VimEnter * map <C-p> :CtrlPMixed
+"autocmd VimEnter * map <C-p> :CtrlPMixed
 
 "Search for tag file..here and above!
 set tags=./tags;
@@ -130,11 +138,12 @@ noremap <A-7> :tabn 7<CR>
 noremap <A-8> :tabn 8<CR>
 noremap <A-9> :tabn 9<CR>
 
-noremap <C-S-c> "+y
-noremap <C-S-p> "+gP
+"noremap <C-S-c> "+y
+"noremap <C-S-p> "+gP
 
 
 set background=light
 colorscheme  PaperColor
 
 :tnoremap <Esc> <C-\><C-n>
+
