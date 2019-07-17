@@ -20,15 +20,15 @@ Plug 'jiangmiao/auto-pairs'
 " Fuzzy finder
 "Plug 'cloudhead/neovim-fuzzy'
 
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 
 "From: https://bluz71.github.io/2017/10/26/turbocharge-the-ctrlp-vim-plugin.html
-let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
-let g:ctrlp_use_caching = 0
-noremap <C-p>       :CtrlPMixed<CR>
+"let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
+"let g:ctrlp_use_caching = 0
+noremap <C-p>       :Files<CR>
 
 
 " Colours
@@ -48,7 +48,7 @@ let mapleader = ","
 cmap Wq wq
 
 
-nnoremap <C-p> :FuzzyOpen<CR>
+"nnoremap <C-p> :FuzzyOpen<CR>
 
 
 

@@ -8,17 +8,8 @@ set  guifont=Ubuntu\ Mono\ 11
 
 
 
-"colorscheme torte
 "set bg=light
-"colorscheme mayansmoke
-"colorscheme desert-warm-256
-"colorscheme desert-warm-256
-"colorscheme delek
-"colorscheme inkpot
-"colorscheme default
-"colorscheme zellner
 
-"colorscheme zellner
 
 "set cursorline
 
@@ -49,7 +40,7 @@ hi ExtraWhitespace guibg=#A4A4E4
 "    syntax reset
 "endif
 
-let colors_name = "comments"
+"let colors_name = "comments"
 
 " First set Normal to regular white on black text colors:
 "hi Normal ctermfg=LightGray ctermbg=Black guifg=#dddddd	guibg=Black
@@ -67,3 +58,6 @@ hi Normal ctermfg=Black ctermbg=White guifg=Black	guibg=White
 "hi Special    cterm=NONE ctermfg=Black  guifg=Black  
 "hi Delimiter  cterm=NONE ctermfg=Black  guifg=Black  
 "hi Operator   cterm=NONE ctermfg=Black  guifg=Black  
+
+
+colorscheme BlackSea

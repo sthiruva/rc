@@ -24,6 +24,12 @@ Plug 'lifepillar/vim-solarized8'
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'flazz/vim-colorschemes'
+
+
+
 
 
 call plug#end()
@@ -143,7 +149,10 @@ noremap <A-9> :tabn 9<CR>
 
 
 set background=light
-colorscheme  PaperColor
+"colorscheme  PaperColor
+"colorscheme  lettuce
+"colorscheme BlackSea
+colorscheme visualstudio
 
 :tnoremap <Esc> <C-\><C-n>
 
