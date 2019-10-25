@@ -60,4 +60,4 @@ hi Normal ctermfg=Black ctermbg=White guifg=Black	guibg=White
 "hi Operator   cterm=NONE ctermfg=Black  guifg=Black  
 
 
-colorscheme BlackSea
+colorscheme desert256

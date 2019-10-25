@@ -12,7 +12,7 @@ Plug 'bling/vim-airline'
 
 "Plug 'ctrlpvim/ctrlp.vim'
 
-""From: https://bluz71.github.io/2017/10/26/turbocharge-the-ctrlp-vim-plugin.html
+"From: https://bluz71.github.io/2017/10/26/turbocharge-the-ctrlp-vim-plugin.html
 "let g:ctrlp_user_command = 'fd --type f --color=never "" %s'
 "let g:ctrlp_use_caching = 0
 "noremap <C-p>       :CtrlPMixed<CR>
@@ -27,11 +27,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'flazz/vim-colorschemes'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/limelight.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 
 
 
 
 
+" Initialize plugin system
 call plug#end()
 
 
@@ -61,6 +65,7 @@ set ruler
 set number
 set splitright
 set splitbelow
+set nowrap
 
 "set backspace=2
 set backspace=indent,eol,start " backspace over everything in insert mode
@@ -112,6 +117,8 @@ map <C-\> :vsp <CR>:exec("tselect ".expand("<cword>"))<CR>
 set formatoptions=tcqnr
 set nospell
 
+set hidden
+
 "croql
 
 
@@ -154,5 +161,14 @@ set background=light
 "colorscheme BlackSea
 colorscheme visualstudio
 
+let g:indent_guides_enable_on_vim_startup = 1
+
 :tnoremap <Esc> <C-\><C-n>
 
+"autocmd VimEnter * NERDTree
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif

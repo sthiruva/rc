@@ -1,0 +1,8 @@
+layout tall
+title sting_0
+cd /home/$USER/work/sting
+launch env RUN="source dotbashrc" bash
+
+new_tab sting_1
+cd /home/$USER/work/sting
+launch env RUN="source dotbashrc" bash

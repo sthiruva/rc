@@ -8,8 +8,8 @@
 " call plug#begin('~/.vim/plugged')
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'ntpeters/vim-better-whitespace'
 
-Plug 'scrooloose/nerdtree'
 
 " Nice status bar
 Plug 'bling/vim-airline'
@@ -17,8 +17,6 @@ Plug 'bling/vim-airline'
 " Auto close parens, braces, brackets, etc
 Plug 'jiangmiao/auto-pairs'
 
-" Fuzzy finder
-"Plug 'cloudhead/neovim-fuzzy'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -36,7 +34,15 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'lifepillar/vim-solarized8'
 
 "Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
 
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'flazz/vim-colorschemes'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/limelight.vim'
+Plug 'nathanaelkane/vim-indent-guides'
 
 
 " Initialize plugin system
@@ -48,7 +54,7 @@ let mapleader = ","
 cmap Wq wq
 
 
-"nnoremap <C-p> :FuzzyOpen<CR>
+map <C-p>       :Files<CR>
 
 
 
@@ -70,10 +76,12 @@ set ruler
 set number
 set splitright
 set splitbelow
+set nowrap
 set hidden
 set mouse=a
 
 set clipboard=unnamed
+"set backspace=2
 
 
 
